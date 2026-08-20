@@ -28,7 +28,7 @@ class Program
             else cannonDamage = 1;
 
             cannonRange = TakeCannonRange(round, cityHealth, manticoreHealth, cannonDamage);
-            CheckCannonRange(cannonRange, manticoreDistance, manticoreHealth, cannonDamage);
+            manticoreHealth = CheckCannonRange(cannonRange, manticoreDistance, manticoreHealth, cannonDamage);
             
             // if manticore alive, reduce the city's health by 1 every turn
             if (manticoreHealth > 0) cityHealth -= 1;
@@ -45,10 +45,10 @@ class Program
         Console.WriteLine("The cannon is expected to deal " + cannonDamage + " damage this round.");
         Console.Write("Enter desired cannon range: ");
        int cannonRange = Convert.ToInt32(Console.ReadLine());
-       return cannonDamage;
+       return cannonRange;
     }
     
-    static void CheckCannonRange(int cannonRange, int manticoreDistance, int manticoreHealth, int cannonDamage)
+    static int CheckCannonRange(int cannonRange, int manticoreDistance, int manticoreHealth, int cannonDamage)
     {
         if (cannonRange > manticoreDistance) Console.WriteLine("That round OVERSHOT the target.");
         else if (cannonRange < manticoreDistance) Console.WriteLine("That round FELL SHORT of the target.");
@@ -57,5 +57,6 @@ class Program
             Console.WriteLine("That round was a DIRECT HIT!");
             manticoreHealth -= cannonDamage;
         }
+        return manticoreHealth;
     }
 }
