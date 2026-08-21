@@ -30,8 +30,18 @@ class Program
             if (manticoreHealth > 0) cityHealth -= 1;
             round += 1;
         }
-        if (manticoreHealth <= 0) Console.WriteLine("The Manticore has been destroyed! The city of Consolas has been saved!");
-        else Console.WriteLine("The city of Consolas has been destroyed! The Manticore has conquered the city!");
+        if (manticoreHealth <= 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("The Manticore has been destroyed! The city of Consolas has been saved!");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("The city of Consolas has been destroyed! The Manticore has conquered the city!");
+            Console.ForegroundColor = ConsoleColor.White;
+        } 
 
     }
     static int DisplayStatusAndGetRange(int round, int cityHealth, int manticoreHealth, int cannonDamage)
