@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="HuntingTheManticore/HuntingTheManticore.csproj" />
+  <Project Path="SimulasTest/SimulasTest.csproj" />
 </Solution>
