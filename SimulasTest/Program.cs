@@ -1,12 +1,15 @@
 ﻿ChestState currentState = ChestState.Locked;
-bool exit = false;
 
-while (!exit)
+while (true)
 {
-    Console.Write($"The chest is {currentState}. What do you want to do? (0 for exit) ");
+    Console.Write($"The chest is {currentState}. What do you want to do? (open, close, lock or exit for 0) ");
     string? userAction = Console.ReadLine(); // string? -> if newState is null
     if (userAction == null) continue;
-    if(userAction == "0") exit = true;
+    if(userAction == "0") break;
+    
+    ChestState previousState = currentState;
+    
+    // switch expression with tuples to apply user action
     currentState = (currentState, userAction) switch
     {
         (ChestState.Locked, "unlock") => ChestState.Closed,
@@ -15,6 +18,8 @@ while (!exit)
         (ChestState.Open, "close") => ChestState.Closed,
         _ => currentState
     };
+
+    if(currentState == previousState) Console.WriteLine("Try different action");
 }
 enum ChestState
 {
