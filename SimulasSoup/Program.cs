@@ -16,6 +16,7 @@ while (true)
         Console.WriteLine("Have you decided what you're going to order? (1, 2, 3)");
         int userMenuChoice = Convert.ToInt16(Console.ReadLine());
 
+        // change to switch 
         if(userMenuChoice == 1)
         {
             Console.WriteLine("Your " + menuChoice1.name + " is coming right up.");
@@ -38,44 +39,34 @@ while (true)
         }
 
     }
+
     else if(userInput == 2)
     {
         Console.WriteLine("Would you like to soup, stew or gumbo?");
         string? customChoice1 = Console.ReadLine();
-        if(customChoice1 == "soup" || customChoice1 == "stew" || customChoice1 == "gumbo")
-        {
-            Console.WriteLine("Okay, what about main ingredient? (mushroom, chicken, carrots, potatoes)");
-            string? customChoice2 = Console.ReadLine();
-            if(customChoice2 == "mushroom" || customChoice2 == "chicken" || customChoice2 == "carrots" || customChoice2 == "potatoes")
-            {
-                Console.WriteLine("Sounds great! and lastly seasoning? (spicy, salty, sweet)");
-                string? customChoice3 = Console.ReadLine();
-                if(customChoice3 == "spicy" || customChoice3 == "salty" || customChoice3 == "sweet")
-                {
-                    var customChoices = (customChoice1, customChoice2, customChoice3);
-
-                    Console.WriteLine("Excellent choice! Your "
-                     + customChoices.customChoice3 + " " + customChoices.customChoice2 + " " + customChoices.customChoice1 
-                    + " is coming right up.");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("I didn't get it");
-                    continue;
-                }
-            }
-            else
-            {
-                Console.WriteLine("I didn't get it");
-                continue;
-            }
-        }
-        else
+        if(customChoice1 != "soup" && customChoice1 != "stew" && customChoice1 != "gumbo")
         {
             Console.WriteLine("I didn't get it");
             continue;
         }
+
+        Console.WriteLine("Okay, what about main ingredient? (mushroom, chicken, carrots, potatoes)");
+        string? customChoice2 = Console.ReadLine();
+        if(customChoice2 != "mushroom" && customChoice2 != "chicken" && customChoice2 != "carrots" && customChoice2 != "potatoes")
+        {
+            Console.WriteLine("I didn't get it");
+            continue;
+        }
+
+        Console.WriteLine("Sounds great! and lastly seasoning? (spicy, salty, sweet)");
+        string? customChoice3 = Console.ReadLine();
+        if(customChoice3 != "spicy" && customChoice3 != "salty" && customChoice3 != "sweet")
+        {
+            Console.WriteLine("I didn't get it");
+            continue;
+        }
+        Console.WriteLine("Excellent choice! Your " + customChoice3 + " " + customChoice2 + " " + customChoice1 + " is coming right up.");
+        break;
     }
     else
     {
