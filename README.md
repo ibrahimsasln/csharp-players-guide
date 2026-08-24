@@ -16,8 +16,10 @@ dotnet run --project ChallengeSolutionName
 
 ## Challenges
 
-**Hunting The Manticore**: Methods
+**Hunting The Manticore:** Methods
 
-**Simula's Test** Enumeration
+**Simula's Test:** Enumeration
 
-**Simula's Soup** Tuples
+**Simula's Soup:** Tuples
+
+**Vin Fletcher's Arrows:** Classes
