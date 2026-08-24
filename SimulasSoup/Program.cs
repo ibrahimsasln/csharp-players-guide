@@ -3,7 +3,9 @@ var menuChoice1 = (name: "Sweet Chicken Gumbo", food: FoodType.Gumbo, ingredient
 var menuChoice2 = (name: "Spicy Mushroom Soup", food: FoodType.Soup, ingredient: MainIngredient.Mushrooms, season: Seasoning.Spicy);
 var menuChoice3 = (name: "Salty Carrot Stew", food: FoodType.Stew, ingredient: MainIngredient.Carrots, season: Seasoning.Salty);
 
-while (true)
+bool isOrdering = true;
+
+while (isOrdering)
 {
     Console.WriteLine("Would you look at the menu(1) or I can help to choose your taste(2)");
     int userInput = Convert.ToInt32(Console.ReadLine());
@@ -16,26 +18,23 @@ while (true)
         Console.WriteLine("Have you decided what you're going to order? (1, 2, 3)");
         int userMenuChoice = Convert.ToInt16(Console.ReadLine());
 
-        // change to switch 
-        if(userMenuChoice == 1)
+        switch (userMenuChoice)
         {
-            Console.WriteLine("Your " + menuChoice1.name + " is coming right up.");
-            break;
-        } 
-        else if(userMenuChoice == 2)
-        {
-            Console.WriteLine("Your " + menuChoice2.name + " is coming right up.");
-            break;
-        } 
-        else if(userMenuChoice == 3)
-        {
-            Console.WriteLine("Your " + menuChoice3.name + " is coming right up.");
-            break;
-        }
-        else
-        {
-            Console.WriteLine("I guess you want to order different thing");
-            continue;
+            case 1:
+                Console.WriteLine("Your " + menuChoice1.name + " is coming right up.");
+                isOrdering = false;
+                break;
+            case 2:
+                Console.WriteLine("Your " + menuChoice2.name + " is coming right up.");
+                isOrdering = false;
+                break;
+            case 3:
+                Console.WriteLine("Your " + menuChoice3.name + " is coming right up.");
+                isOrdering = false;
+                break;
+            default:
+                Console.WriteLine("I guess you want to order different thing");
+                continue;
         }
 
     }
