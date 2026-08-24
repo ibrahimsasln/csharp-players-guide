@@ -2,4 +2,5 @@
   <Project Path="HuntingTheManticore/HuntingTheManticore.csproj" />
   <Project Path="SimulasSoup/SimulasSoup.csproj" />
   <Project Path="SimulasTest/SimulasTest.csproj" />
+  <Project Path="VinFletchersArrows/VinFletchersArrows.csproj" />
 </Solution>
