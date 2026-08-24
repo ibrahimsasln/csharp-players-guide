@@ -16,7 +16,7 @@ while (isOrdering)
         Console.WriteLine("(2) " +menuChoice2.name);
         Console.WriteLine("(3) " +menuChoice3.name);
         Console.WriteLine("Have you decided what you're going to order? (1, 2, 3)");
-        int userMenuChoice = Convert.ToInt16(Console.ReadLine());
+        int userMenuChoice = Convert.ToInt32(Console.ReadLine());
 
         switch (userMenuChoice)
         {
@@ -65,7 +65,7 @@ while (isOrdering)
             continue;
         }
         Console.WriteLine("Excellent choice! Your " + customChoice3 + " " + customChoice2 + " " + customChoice1 + " is coming right up.");
-        break;
+        isOrdering = false;
     }
     else
     {
