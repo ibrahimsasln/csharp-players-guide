@@ -77,7 +77,7 @@ class Arrow
             _ => throw new ArgumentException($"Unexpected fletching type: {Fletching}")
         };
 
-        float lengthCost = _length * 0.05f;
+        float lengthCost = Length * 0.05f;
 
         return headCost + fletchingCost + lengthCost;
     }
