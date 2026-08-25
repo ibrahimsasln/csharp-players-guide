@@ -22,4 +22,4 @@ dotnet run --project ChallengeSolutionName
 
 **Simula's Soup:** Tuples
 
-**Vin Fletcher's Arrows:** Classes
+**Vin Fletcher's Arrows:** Classes, Properties

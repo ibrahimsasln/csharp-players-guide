@@ -36,41 +36,48 @@ class Arrow
     const int MinLength = 60;
     const int MaxLength = 100;
 
-    ArrowheadType arrowhead;
-    FletchingType fletching;
-    int length;
+    public ArrowheadType Arrowhead {get; }
+    public FletchingType Fletching {get; }
+    private int _length;
+    public int Length
+    {
+        get => _length;
+        private set
+        {
+            if (value < MinLength || value > MaxLength)
+            {
+                throw new ArgumentException($"Length must be between {MinLength} and {MaxLength}, got {value}");
+            }
+            _length = value;
+        }
+    }
 
     public Arrow(ArrowheadType arrowhead, FletchingType fletching, int length)
     {
-        if (length < MinLength || length > MaxLength)
-        {
-            throw new ArgumentException($"Length must be between {MinLength} and {MaxLength}, got {length}");
-        }
-
-        this.arrowhead = arrowhead;
-        this.fletching = fletching;
-        this.length = length;
+        Arrowhead = arrowhead;
+        Fletching = fletching;
+        Length = length;
     }
 
     public float GetCost()
     {
-        float headCost = arrowhead switch
+        float headCost = Arrowhead switch
         {
             ArrowheadType.Steel => 10.0f,
             ArrowheadType.Wood => 3.0f,
             ArrowheadType.Obsidian => 5.0f,
-            _ => throw new ArgumentException($"Unexpected arrowhead type: {arrowhead}")
+            _ => throw new ArgumentException($"Unexpected arrowhead type: {Arrowhead}")
         };
 
-        float fletchingCost = fletching switch
+        float fletchingCost = Fletching switch
         {
             FletchingType.Plastic => 10.0f,
             FletchingType.TurkeyFeathers => 5.0f,
             FletchingType.GooseFeathers => 3.0f,
-            _ => throw new ArgumentException($"Unexpected fletching type: {fletching}")
+            _ => throw new ArgumentException($"Unexpected fletching type: {Fletching}")
         };
 
-        float lengthCost = length * 0.05f;
+        float lengthCost = _length * 0.05f;
 
         return headCost + fletchingCost + lengthCost;
     }
