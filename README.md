@@ -14,7 +14,7 @@ dotnet run --project ChallengeSolutionName
 
 .NET 10
 
-## Challenges
+# Challenges
 
 **Hunting The Manticore:** Methods
 
@@ -27,3 +27,5 @@ dotnet run --project ChallengeSolutionName
 ### The Five Prototypes:
 
 **1- The Point:** Immutable Properties
+
+**2- The Color:** Static Properties
