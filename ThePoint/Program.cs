@@ -1,17 +1,10 @@
 ﻿/*
-Objectives:
-- Define a new Point class with properties for X and Y.
-- Add a constructor to create a point from a spesific x- and y-coordinate.
-- Add a parameterless constructor to create a point at the origin (0,0).
-- In your main method, create a point at (2,3) and another at (-4,0). 
-- Display these points on the console window in the format (x,y) to illustrate that the class works.
+Question: Are your X and Y  properties immutable? Why did you choose what you did?
 
-        Question: Are your X and Y  properties immutable? Why did you choose what you did?
-
-        My Answer: I initially added a private set to the properties but once i
-                    realized there was no place in the class that actually needed to modify 
-                    them after construction then i removed it and went with immutable properties 
-                    instead.
+My Answer: I initially added a private set to the properties but once i
+realized there was no place in the class that actually needed to modify 
+them after construction then i removed it and went with immutable properties 
+instead.
  */
 
 using System;
