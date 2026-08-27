@@ -29,3 +29,5 @@ dotnet run --project ChallengeSolutionName
 **1- The Point:** Immutable Properties
 
 **2- The Color:** Static Properties
+
+**3- The Card:** Enum, Classes
