@@ -2,6 +2,7 @@
   <Project Path="HuntingTheManticore/HuntingTheManticore.csproj" />
   <Project Path="SimulasSoup/SimulasSoup.csproj" />
   <Project Path="SimulasTest/SimulasTest.csproj" />
+  <Project Path="TheCard/TheCard.csproj" />
   <Project Path="TheColor/TheColor.csproj" />
   <Project Path="ThePoint/ThePoint.csproj" />
   <Project Path="VinFletchersArrows/VinFletchersArrows.csproj" />
