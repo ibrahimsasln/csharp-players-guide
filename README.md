@@ -31,3 +31,5 @@ dotnet run --project ChallengeSolutionName
 **2- The Color:** Static Properties
 
 **3- The Card:** Enum, Classes
+
+**4- The Locked Door:** Enum, Classes, Properties
