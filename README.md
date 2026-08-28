@@ -24,12 +24,10 @@ dotnet run --project ChallengeSolutionName
 
 **Vin Fletcher's Arrows:** Classes, Properties
 
-### The Five Prototypes:
+**The Point:** Immutable Properties
 
-**1- The Point:** Immutable Properties
+**The Color:** Static Properties
 
-**2- The Color:** Static Properties
+**The Card:** Enum, Classes
 
-**3- The Card:** Enum, Classes
-
-**4- The Locked Door:** Enum, Classes, Properties
+**The Locked Door:** Enum, Classes, Properties
