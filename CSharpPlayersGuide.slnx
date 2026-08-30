@@ -6,5 +6,6 @@
   <Project Path="TheColor/TheColor.csproj" />
   <Project Path="TheLockedDoor/TheLockedDoor.csproj" />
   <Project Path="ThePoint/ThePoint.csproj" />
+  <Project Path="TicTocToe/TicTocToe.csproj" />
   <Project Path="VinFletchersArrows/VinFletchersArrows.csproj" />
 </Solution>
