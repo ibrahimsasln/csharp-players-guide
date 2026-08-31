@@ -1,6 +1,6 @@
 # The C# Player's Guide - Challenges 
 
-My solutions to the challenges in *The C# Player's Guide* (5th Edition) by RB Whitaker.
+My learning path and solutions to the challenges in *The C# Player's Guide* (5th Edition) by RB Whitaker.
 
 Each challenge is a standalone .NET console project, so they build and run independently.
 
