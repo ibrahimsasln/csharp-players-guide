@@ -7,7 +7,8 @@ class Program
 {
     static void Main(string[] args)
     {
-
+        TicTocToeGame game = new TicTocToeGame();
+        game.Run();
     }
 }
 
@@ -18,9 +19,9 @@ class Player
         while (true)
         {
             Console.WriteLine("Which square do you want to play in? (0 for exit)");
-            int PlayerMove = Convert.ToInt32(Console.ReadLine());
-            if (PlayerMove == 0) return 0;
-            if (PlayerMove >= 1 && PlayerMove <= 9) return PlayerMove;
+            int playerMove = Convert.ToInt32(Console.ReadLine());
+            if (playerMove == 0) return 0;
+            if (playerMove >= 1 && playerMove <= 9) return playerMove;
             else Console.WriteLine("Invalid square selected. Please try again.");
         }
     }
@@ -32,6 +33,9 @@ class Round
     private Player _player1;
     private Player _player2;
     private Player _currentPlayer;
+    public bool IsOver { get; private set; }
+    public string? Winner { get; private set; }
+    public bool IsExited { get; private set; }
     private int _moveCount = 0;
 
     public Round(Player player1, Player player2)
@@ -50,7 +54,7 @@ class Round
         {" ", " ", " "}
     };
 
-    private void PlayTurn()
+    public void PlayTurn()
     {
         string currentSymbol = (_moveCount % 2 == 0) ? "X" : "O";
         _currentPlayer = (_moveCount % 2 == 0) ? _player1 : _player2;
@@ -58,11 +62,16 @@ class Round
         int row, col;
 
         Display();
-        
+
         while (true)
         {
             int currentMove = _currentPlayer.GetMove();
-            if (currentMove == 0) return;
+            if (currentMove == 0)
+            {
+                IsExited = true;
+                IsOver = true;
+                return;
+            }
 
             row = (currentMove - 1) / 3;
             col = (currentMove - 1) % 3;
@@ -76,8 +85,18 @@ class Round
         _moveCount++;
 
         string? winner = CheckWinner();
-        if (winner != null) { Console.WriteLine($"{winner} won!"); return; }
-        if (CheckDraw()) Console.WriteLine("DRAW!");
+        if (winner != null)
+        {
+            Winner = winner;
+            IsOver = true;
+            Console.WriteLine($"{winner} won!");
+            return;
+        }
+        if (CheckDraw())
+        {
+            IsOver = true;
+            Console.WriteLine("DRAW!");
+        }
     }
 
 
@@ -129,10 +148,47 @@ class Round
 
 class Scoreboard
 {
+    private int _xWins = 0;
+    private int _oWins = 0;
 
+    public void RecordWin(string symbol)
+    {
+        if (symbol == "X") _xWins++;
+        else _oWins++;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine($"Score — X: {_xWins}, O: {_oWins}");
+    }
 }
 
 class TicTocToeGame
 {
+    public void Run()
+    {
+        Player player1 = new Player();
+        Player player2 = new Player();
+        Scoreboard scoreboard = new Scoreboard();
 
+        while (true)
+        {
+            Round round = new Round(player1, player2);
+
+            while (!round.IsOver)
+            {
+                round.PlayTurn();
+            }
+
+            if (round.IsExited) break;
+
+            if (round.Winner != null) scoreboard.RecordWin(round.Winner);
+            scoreboard.Display();
+
+            Console.WriteLine("Play again? (y/n)");
+            if (Console.ReadLine()?.ToLower() != "y") break;
+        }
+
+        Console.WriteLine("Thanks for playing!");
+    }
 }
