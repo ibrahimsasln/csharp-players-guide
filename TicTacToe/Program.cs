@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Linq;
 
-namespace TicTocToe;
+namespace TicTacToe;
 
 class Program
 {
     static void Main(string[] args)
     {
-        TicTocToeGame game = new TicTocToeGame();
+        TicTacToeGame game = new TicTacToeGame();
         game.Run();
     }
 }
@@ -163,7 +163,7 @@ class Scoreboard
     }
 }
 
-class TicTocToeGame
+class TicTacToeGame
 {
     public void Run()
     {
