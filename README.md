@@ -31,3 +31,5 @@ dotnet run --project ChallengeSolutionName
 **The Card:** Enum, Classes
 
 **The Locked Door:** Enum, Classes, Properties
+
+**Tic-Tac-Toe Game:** CRC Card, OOP Design
