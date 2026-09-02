@@ -33,3 +33,5 @@ dotnet run --project ChallengeSolutionName
 **The Locked Door:** Enum, Classes, Properties
 
 **Tic-Tac-Toe Game:** CRC Card, OOP Design
+
+**Packing Inventor:** Inheritance
