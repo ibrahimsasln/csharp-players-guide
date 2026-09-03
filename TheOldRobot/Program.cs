@@ -12,7 +12,7 @@ class Program
         string[] userCommands = new string[3];
         for (int i = 0; i < 3; i++)
         {
-            userCommands[i] = Console.ReadLine()?.ToLower();
+            userCommands[i] = Console.ReadLine()?.ToLower() ?? "";
 
             robot.Commands[i] = userCommands[i] switch
             {
