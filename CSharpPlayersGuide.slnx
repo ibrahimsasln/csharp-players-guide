@@ -11,4 +11,5 @@
   <Project Path="ThePoint/ThePoint.csproj" />
   <Project Path="TicTacToe/TicTacToe.csproj" />
   <Project Path="VinFletchersArrows/VinFletchersArrows.csproj" />
+  <Project Path="WarPreparations/WarPreparations.csproj" />
 </Solution>
