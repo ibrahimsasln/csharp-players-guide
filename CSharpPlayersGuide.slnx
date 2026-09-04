@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="HuntingTheManticore/HuntingTheManticore.csproj" />
   <Project Path="PackingInventory/PackingInventory.csproj" />
+  <Project Path="RoomCoordinates/RoomCoordinates.csproj" />
   <Project Path="SimulasSoup/SimulasSoup.csproj" />
   <Project Path="SimulasTest/SimulasTest.csproj" />
   <Project Path="TheCard/TheCard.csproj" />

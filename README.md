@@ -37,3 +37,5 @@ dotnet run --project ChallengeSolutionName
 **Packing Inventor:** Inheritance
 
 **The Old Robot:** Polymorphism, Interface
+
+**Room Coordiantes:** Struct, Simplified Constructor and "new" Expression
