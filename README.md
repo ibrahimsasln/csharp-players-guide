@@ -36,4 +36,4 @@ dotnet run --project ChallengeSolutionName
 
 **Packing Inventor:** Inheritance
 
-**The Old Robot:** Polymorphism
+**The Old Robot:** Polymorphism, Interface
