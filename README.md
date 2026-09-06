@@ -41,3 +41,5 @@ dotnet run --project ChallengeSolutionName
 **Room Coordiantes:** Struct, Simplified Constructor and "new" Expression
 
 **War Preparations:** Record, "with" statement
+
+**Colored Items:** Generics
