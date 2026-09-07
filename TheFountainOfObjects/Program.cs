@@ -8,6 +8,9 @@ class Program
     {
         Map map = new Map(4, 4);
         Player player = new Player(0, 0);
+        FountainOfObjectGame fountainOfObjectGame = new(map, player);
+
+        fountainOfObjectGame.Run();
     }
 }
 
@@ -28,7 +31,7 @@ public class Map
             for (int c = 0; c < columnCount; c++)
                 room[r, c] = new EmptyRoom(); //fill with empty room
 
-        room[0, 0] = new CaveEnterance();
+        room[0, 0] = new CaveEntrance();
         room[0, 2] = new FountainRoom();
     }
 
@@ -74,7 +77,7 @@ public class FountainOfObjectGame
 {
     private readonly Map map;
     private readonly Player player;
-    private PlayerInput input;
+    private readonly PlayerInput input;
 
 
     public FountainOfObjectGame(Map map, Player player)
@@ -90,16 +93,90 @@ public class FountainOfObjectGame
         Console.WriteLine($"You are in the room at (Row = {player.Row}, Column = {player.Column})");
         Console.WriteLine(map.GetRoomAt(player.Row, player.Column).Describe());
     }
+
     public void Run()
     {
-        while (true)
+        bool isGameOver = false;
+
+        while (!isGameOver)
         {
             Display();
-            string userInput = input.GetCommand();
-            
+
+            if (player.Row == 0 && player.Column == 0)
+            {
+                Room fountainRoom = map.GetRoomAt(0, 2);
+                if (fountainRoom is FountainRoom fr && fr.IsFountainOpen)
+                {
+                    Console.WriteLine("The Fountain of Objects has been reactivated, and you have escaped with your life!");
+                    Console.WriteLine("You win!");
+                    isGameOver = true;
+                    continue;
+                }
+            }
+
+            string? userInput = input.GetCommand();
+
+            if (string.IsNullOrWhiteSpace(userInput))
+            {
+                Console.WriteLine("Invalid move");
+                continue;
+            }
+
+            string command = userInput.Trim().ToLower();
+
+            Direction? moveDirection = command switch
+            {
+                "move north" => Direction.North,
+                "move south" => Direction.South,
+                "move east" => Direction.East,
+                "move west" => Direction.West,
+                _ => null
+            };
+
+            if (moveDirection.HasValue)
+            {
+                var (rowOffset, columnOffset) = moveDirection.Value switch
+                {
+                    Direction.North => (-1, 0),
+                    Direction.South => (1, 0),
+                    Direction.East => (0, 1),
+                    Direction.West => (0, -1),
+                    _ => (0, 0)
+                };
+
+                int targetRow = player.Row + rowOffset;
+                int targetColumn = player.Column + columnOffset;
+
+                if (map.IsOnMap(targetRow, targetColumn))
+                {
+                    player.MoveTo(targetRow, targetColumn);
+                }
+                else
+                {
+                    Console.WriteLine("There is wall here. You can't go there.");
+                }
+            }
+            else if (command == "enable fountain")
+            {
+                Room currentRoom = map.GetRoomAt(player.Row, player.Column);
+
+                if (currentRoom is FountainRoom fountainRoom)
+                {
+                    fountainRoom.EnableFountain();
+                }
+                else
+                {
+                    Console.WriteLine("There is no fountain here");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid move");
+            }
         }
     }
 }
+
 
 public abstract class Room
 {
@@ -128,7 +205,7 @@ public class FountainRoom : Room
     }
 }
 
-public class CaveEnterance : Room
+public class CaveEntrance : Room
 {
     public override string Describe()
     {
