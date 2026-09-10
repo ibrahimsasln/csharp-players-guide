@@ -38,7 +38,7 @@ dotnet run --project ChallengeSolutionName
 
 **The Old Robot:** Polymorphism, Interface
 
-**Room Coordiantes:** Struct, Simplified Constructor and "new" Expression
+**Room Coordiantes:** Struct
 
 **War Preparations:** Record, "with" statement
 
